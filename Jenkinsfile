@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/SalomiParasara/staticwebapp.git'
-                
+             
             }
         }
 
@@ -15,10 +15,10 @@ pipeline {
             }
         }
 
-        stage('Run Docker Container') {
+        stage('Run Docker Container'){
             steps {
                 sh 'docker rm -f simple-web-app || true'
-                sh 'docker run -d -p 8080:80 --name simple-web-app simple-web-app:latest'
+                sh 'docker run -d -p 8081:80 --name simple-web-app simple-web-app:latest'
             }
         }
     }
