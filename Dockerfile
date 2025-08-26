@@ -1,11 +1,4 @@
-# Use Nginx as a lightweight web server
 FROM nginx:alpine
-
-# Copy your HTML file into the container
-COPY index.html /usr/share/nginx/html/index.html
-
-# Expose port 80
+COPY index.html /usr/share/nginx/html/
+COPY default.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
-
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
